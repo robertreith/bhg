@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160707185656) do
   enable_extension "plpgsql"
 
   create_table "percentages", force: :cascade do |t|
-    t.integer  "percentage"
+    t.integer  "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
