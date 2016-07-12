@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+  padding: 15px;
+}
+
+.nav-bar {
+  padding-bottom: 25px;
+  font-size: 20px;
+}
+
+.add-data {
+  padding-top: 25px;
+  font-size: 20px;
+}
+
+.portal {
+  padding-top:  25px;
+  font-size: 20px;
+}

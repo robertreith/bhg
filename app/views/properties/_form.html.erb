@@ -1,0 +1,37 @@
+<%= form_for @property do |f| %>
+
+<% if @property.errors.any? %>
+<h2><%= pluralize(@property.errors.count,"error") %> prevented this post from saving</h2>
+
+    <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+  <p>
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </p>
+
+  <p>
+    <%= f.label :neighborhood %><br>
+    <%= f.text_field :neighborhood %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

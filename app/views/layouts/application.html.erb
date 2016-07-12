@@ -7,8 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1>The Boston Housing Guide</h1>
+
+<% if logged_in? %>
+  <div class="nav-bar">
+    <h2>Admin Portal</h2>
+    <%= link_to 'Home', root_path %> |
+    <%= link_to 'Edit User', edit_user_path(current_user) %> |
+    <%= link_to 'Logout', logout_path, method: "delete" %>
+  </div>
+<% end %>
 
 <%= yield %>
+
+<% if logged_in? %>
+  <div class="add-data">
+    <%= link_to 'New Property', new_property_path %> |
+    <%= link_to 'New Unit Association', new_unit_path %>
+  </div>
+<% else %>
+  <div class="portal">
+    <%= link_to 'Admin Portal', admin_path %>
+  </div>
+<% end %>
 
 </body>
 </html>

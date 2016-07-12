@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+percentages = Percentage.create! [{percent: 50},
+                                  {percent: 60},
+                                  {percent: 65},
+                                  {percent: 70},
+                                  {percent: 75},
+                                  {percent: 80},
+                                  {percent: 90},
+                                  {percent: 100},
+                                  {percent: 110},
+                                  {percent: 120}]
