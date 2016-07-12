@@ -1,0 +1,22 @@
+
+<table>
+    <tr>
+      <th>Company</th>
+      <th>Neighborhood</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Number of Units</th>
+      <th>Percentage</th>
+    </tr>
+  <% @units.each do |unit| %>
+    <tr>
+      <td><%= unit.property.company %></td>
+      <td><%= unit.property.neighborhood %></td>
+      <td><%= unit.property.address %></td>
+      <td><%= unit.property.phone %></td>
+      <td><%= unit.num_of_units %></td>
+      <td><%= unit.percentage.percent %>%</td>
+    </tr>
+  <% end %>
+</table>
+

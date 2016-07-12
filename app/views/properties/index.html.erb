@@ -1,0 +1,37 @@
+<table>
+    <tr>
+      <th>Company</th>
+      <th>Neighborhood</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Number of Units</th>
+      <th>Percentage</th>
+      <th>Number of Units</th>
+      <th>Percentage</th>
+    </tr>
+  <% @properties.each do |property| %>
+    <tr>
+      <td><%= property.company %> <% if logged_in? %><%= link_to 'Edit', edit_property_path(property) %> | <%= link_to 'Remove', property_path(property), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+      <td><%= property.neighborhood %></td>
+      <td><%= property.address %></td>
+      <td><%= property.phone %></td>
+      <% if property.units.first %>
+        <td><%= property.units.first.num_of_units %></td>
+        <td><%= property.units.first.percentage.percent %>%</td>
+          <% if property.units.second %>
+            <td><%= property.units.second.num_of_units %></td>
+            <td><%= property.units.second.percentage.percent %>%</td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+        <% else %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      <% end %>
+
+    </tr>
+  <% end %>
+</table>
