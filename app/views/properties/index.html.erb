@@ -1,31 +1,54 @@
 <table>
     <tr>
-      <th>Company</th>
+      <th>Property</th>
       <th>Neighborhood</th>
       <th>Address</th>
       <th>Phone</th>
-      <th>Number of Units</th>
+      <th>Units</th>
       <th>Percentage</th>
-      <th>Number of Units</th>
+      <th>Units</th>
+      <th>Percentage</th>
+      <th>Units</th>
+      <th>Percentage</th>
+      <th>Units</th>
       <th>Percentage</th>
     </tr>
+
   <% @properties.each do |property| %>
     <tr>
-      <td><%= property.company %> <% if logged_in? %><%= link_to 'Edit', edit_property_path(property) %> | <%= link_to 'Remove', property_path(property), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+      <td><%= property.company %><br><% if logged_in? %><%= link_to 'Edit', edit_property_path(property) %> | <%= link_to 'Remove', property_path(property), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       <td><%= property.neighborhood %></td>
       <td><%= property.address %></td>
       <td><%= property.phone %></td>
       <% if property.units.first %>
-        <td><%= property.units.first.num_of_units %></td>
+        <td><%= property.units.first.num_of_units %><br><% if logged_in? %><%= link_to 'Edit', edit_unit_path(property.units.first) %> | <%= link_to 'Remove', unit_path(property.units.first), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
         <td><%= property.units.first.percentage.percent %>%</td>
           <% if property.units.second %>
-            <td><%= property.units.second.num_of_units %></td>
+            <td><%= property.units.second.num_of_units %><br><% if logged_in? %><%= link_to 'Edit', edit_unit_path(property.units.second) %> | <%= link_to 'Remove', unit_path(property.units.second), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
             <td><%= property.units.second.percentage.percent %>%</td>
           <% else %>
             <td></td>
             <td></td>
           <% end %>
+          <% if property.units.third %>
+            <td><%= property.units.third.num_of_units %><br><% if logged_in? %><%= link_to 'Edit', edit_unit_path(property.units.third) %> | <%= link_to 'Remove', unit_path(property.units.third), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+            <td><%= property.units.third.percentage.percent %>%</td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+          <% if property.units.fourth %>
+            <td><%= property.units.fourth.num_of_units %><br><% if logged_in? %><%= link_to 'Edit', edit_unit_path(property.units.fourth) %> | <%= link_to 'Remove', unit_path(property.units.fourth), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+            <td><%= property.units.fourth.percentage.percent %>%</td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
         <% else %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>

@@ -1,35 +1,4 @@
 <h2>New Units Association</h2>
 <h3>Use this form to add the number of units and income percentage for the property.</h3>
 
-<%= form_for @unit do |f| %>
-
-<% if @unit.errors.any? %>
-<h2><%= pluralize(@unit.errors.count,"error") %> prevented this post from saving</h2>
-
-    <ul>
-      <% @unit.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-<% end %>
-
-  <p>
-    <%= f.label :property %><br>
-    <%= f.collection_select(:property_id, Property.all, :id, :company) %>
-  </p>
-
-  <p>
-    <%= f.label :number_of_units %><br>
-    <%= f.text_field :num_of_units %>
-  </p>
-
-  <p>
-    <%= f.label :percentage %><br>
-    <%= f.collection_select(:percentage_id, Percentage.all, :id, :percent) %>
-  </p>
-
-  <p>
-    <%= f.submit "Create Association" %>
-  </p>
- 
-<% end %>
+<%= render 'form' %>
