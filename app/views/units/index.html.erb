@@ -1,21 +1,31 @@
 
 <table>
     <tr>
-      <th>Company</th>
+      <% if logged_in? %>
+        <th>Update Property</th>
+      <% end %>
+      <th>Property</th>
       <th>Neighborhood</th>
       <th>Address</th>
       <th>Phone</th>
       <th>Number of Units</th>
       <th>Percentage</th>
+      <% if logged_in? %>
+        <th>Update Units</th>
+      <% end %>
     </tr>
   <% @units.each do |unit| %>
     <tr>
+      <% if logged_in? %>
+        <td><%= link_to 'Edit', edit_property_path(unit.property) %> | <%= link_to 'Remove', property_path(unit.property), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       <td><%= unit.property.company %></td>
       <td><%= unit.property.neighborhood %></td>
       <td><%= unit.property.address %></td>
       <td><%= unit.property.phone %></td>
       <td><%= unit.num_of_units %></td>
       <td><%= unit.percentage.percent %>%</td>
+      <% if logged_in? %><td><%= link_to 'Edit', edit_unit_path(unit) %> | <%= link_to 'Remove', unit_path(unit), method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
     </tr>
   <% end %>
 </table>
